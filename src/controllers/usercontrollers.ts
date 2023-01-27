@@ -1,6 +1,5 @@
 import * as express from 'express';
-import { User } from '../models/user';
-import { UserService } from '../services/user-service';
+import { UserService } from '../services/user.service';
 
 export class UserController {
     public router = express.Router();
