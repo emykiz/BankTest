@@ -1,5 +1,7 @@
 
-import {UserService} from '../controllers/usercontrollers'
+import {UserService} from '../services/userservice'
+import { Connection, Repository } from "typeorm";
+
 
 const userService = new UserService();
 
