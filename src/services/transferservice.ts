@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Account } from '../entities/account.entity';
+import { Account } from '../entities/accountentity';
 import { Repository } from 'typeorm';
-import { Transfer } from '../entities/transfer.entity';
+import { Transfer } from '../entities/transferentity';
 
 @Injectable()
 export class TransferService {

@@ -1,5 +1,5 @@
 
-import {UserService} from '../controllers/user'
+import {UserService} from '../controllers/usercontrollers'
 
 const userService = new UserService();
 
