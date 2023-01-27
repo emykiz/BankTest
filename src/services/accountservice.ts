@@ -1,5 +1,5 @@
 import { Connection, Repository } from "typeorm";
-import { Account } from "../entities/Account";
+import { Account } from "../entities/accountentity";
 
 export class AccountService {
 private accountRepository: Repository<Account>;

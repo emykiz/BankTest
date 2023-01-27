@@ -1,5 +1,6 @@
 import * as express from 'express';
 import { UserService } from '../services/userservice';
+import { User } from '../entities/userentity';
 
 export class UserController {
     public router = express.Router();
@@ -26,7 +27,7 @@ export class UserController {
     private getUser = async (req: express.Request, res: express.Response) => {
         const userId = req.params.id;
         try {
-            const user = await this.userService.getUser(userId);
+            const user = await this.userService.getUserById(userId);
             res.json(user);
         } catch (err) {
             res.status(500).json({ error: err.message });

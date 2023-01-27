@@ -1,6 +1,7 @@
 import { Entity, EntityManager } from 'typeorm';
 // import { Entity } from './Entities';
 import * as bcrypt from 'bcryptjs';
+import { createConnection, getConnection } from '../utils/database';
 
 export class User extends Entities {
     id: number;

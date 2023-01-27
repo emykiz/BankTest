@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Account } from '../entities/accountentity';
-import { Repository } from 'typeorm';
 import { Transfer } from '../entities/transferentity';
+import { User } from '../entities/transferentity';
+import { Connection, Repository } from "typeorm";
+
 
 @Injectable()
 export class TransferService {
@@ -12,7 +14,14 @@ export class TransferService {
         @InjectRepository(Transfer)
         private readonly transferRepository: Repository<Transfer>,
     ) { }
-
+    // private accountRepository: Repository<Account>;
+    // constructor(connection: Connection) {
+    //     this.accountRepository = connection.getRepository(Account);
+    // }
+    // private transferRepository: Repository<Transfer>;
+    // constructor(connection: Connection) {
+    //     this.transferRepository = connection.getRepository(Transfer);
+    // }
     async transfer(senderId: number, receiverId: number, amount: number): Promise<void> {
         // Check if sender account exists
         const sender = await this.accountRepository.findOne({ where: { id: senderId } });

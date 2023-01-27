@@ -3,11 +3,12 @@ import { Request, Response } from 'express';
 import { TransferService } from '../services/transferservice';
 import { AccountService } from '../services/accountservice';
 import { UserService } from '../services/userservice';
+import { connection } from 'mongoose';
 
 export class TransferController {
 
-  private transferService = new TransferService();
-  private accountService = new AccountService();
+  private transferService = new TransferService(connection,  Promise<Account>);
+  private accountService = new AccountService(connection);
   private userService = new UserService();
 
 
@@ -52,7 +53,3 @@ export class TransferController {
   }
 }
 
-module.exports ={
-    fundAccount,
-     
-}

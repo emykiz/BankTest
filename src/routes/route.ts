@@ -1,13 +1,13 @@
 // routes.ts
 import express from 'express';
 import { UserController } from '../controllers/usercontrollers';
-import { transactionController } from '../controllers/transactioncontroller';
-import { accountController } from '../controllers/accountcontrollers';
+import { TransferController } from '../controllers/transactioncontroller';
+import { AccountController } from '../controllers/accountcontrollers';
 
 const router = express.Router();
 
 router.post('/users', UserController.createUser);
-router.post('/users/:id/transfer', transactionController.transfer);
-router.post('/users/:id/withdraw', transactionController.withdraw);
-router.post('/users/:id/fundAccount', transactionController.fundAccount);
-router.post('/createaccount', accountController.createAccount);
+router.post('/users/:id/transfer', TransferController.transfer);
+router.post('/users/:id/withdraw', TransferController.withdraw);
+router.post('/users/:id/fundAccount', TransferController.fundAccount);
+router.post('/createaccount', AccountController.createAccount);

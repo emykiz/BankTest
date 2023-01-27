@@ -1,5 +1,5 @@
 import { Entity, EntityManager } from 'typeorm';
-// import { Entity } from './Entities';
+import { Entity } from './Entities';
 import * as bcrypt from 'bcryptjs';
 
 
@@ -31,3 +31,5 @@ export class Account {
     }
 
 }
+
+
