@@ -1,7 +1,8 @@
 
 import { Request, Response } from 'express';
-import { TransferService } from '../services/transfer.service';
-import { AccountService } from '../services/account.service';
+import { TransferService } from '../services/transferservice';
+import { AccountService } from '../services/accountservice';
+import { UserService } from '../services/userservice';
 
 export class TransferController {
 
@@ -11,10 +12,10 @@ export class TransferController {
 
 
   async fundAccount(req: Request, res: Response): Promise<Response> {
-    const { userId, amount } = req.body;
+    const { userId, recieverId, amount } = req.body;
     try {
-      const { userId, amount } = req.body;
-      const account = await this.userService.fundAccount(userId, amount);
+      const { userId, recieverId, amount } = req.body;
+      const account = await this.transferService.transfer(userId, recieverId, amount);
       return res.status(200).json({ data: account });
     } catch (error) {
       return res.status(500).json({ message: error.message });
@@ -49,4 +50,9 @@ export class TransferController {
       res.status(400).json({ message: error.message });
     }
   }
+}
+
+module.exports ={
+    fundAccount,
+     
 }
